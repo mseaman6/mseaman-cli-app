@@ -3,7 +3,6 @@ class Event
 
   @@all = []
   attr_accessor :name, :date, :url, :description
-#create event instance with various attributes
 
   def initialize(event_hash)
     event_hash.each do |k, v|
