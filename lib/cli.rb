@@ -15,5 +15,10 @@ class CLI
     Event.create_from_collection(events_array)
   end
 
-
+  def add_event_description
+    Event.all.each do |event|
+      event_description = Event_Scraper.scrape_event_page(library_url + event.url)
+      event.add_event_attributes(attributes_hash)
+    end
+  end
 end
