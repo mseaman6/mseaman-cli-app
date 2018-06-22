@@ -1,3 +1,5 @@
 #!/usr/bin/env ruby
 
 require_relative "../lib/cli.rb"
+
+Event_Scraper.scrape_library_page
