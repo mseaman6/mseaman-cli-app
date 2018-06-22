@@ -21,5 +21,10 @@ class Event_Scraper
   #library_url = "https://www.dclibrary.org/northeast#eventsTab"
 
   #also want to collect the entire description using the event url
-
+  def self.scrape_event_page(event_url)
+    doc = Nokogiri::HTML(open(event_url))
+    event_info = {
+      :description =>
+    }
+  end
 end
