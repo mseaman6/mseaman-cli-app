@@ -1,5 +1,5 @@
 
-Class Event
+class Event
 
 #create event instance with various attributes
 
