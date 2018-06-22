@@ -6,18 +6,16 @@ class Event_Scraper
 
 #scrape event information from the library: event_title, event_time, event_description
   def self.scrape_library_page(library_url = "https://www.dclibrary.org/northeast")
-    events = []
     doc = Nokogiri::HTML(open(library_url))
-    events_info = doc.css(".view-content")
-    events_info.each do |event_info|
+    events_info = doc.css(".view-content").css(".views-row")
+    binding.pry
+    events_info.collect do |event_info|
       event = {
-        name: doc.css(".field-name-title").text,
-        date: doc.css(".date-display-single").text,
-        url: doc.css(".field-name-title.a").attribute("href").value
+        name: events_info.css(".field-name-title").text,
+        date: events_info.css(".date-display-single").text,
+        url: events_info.css(".field-name-title").css("a").attribute("href").value
       }
-      binding.pry
     end
-    events << event
   end
 
   #library_url = "https://www.dclibrary.org/northeast"
