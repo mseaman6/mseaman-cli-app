@@ -11,8 +11,8 @@ class Event_Scraper
     events_info = doc.css(".group-right")
     events_info.each do |event_info|
       event = {
-        name: doc.css(".field-name-title").text
-        date: doc.css("date-display-single").text
+        name: doc.css(".field-name-title").text,
+        date: doc.css("date-display-single").text,
         url: doc.css(".field-name-title").attribute("href").value
       }
     events << event
