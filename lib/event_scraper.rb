@@ -19,7 +19,7 @@ class Event_Scraper
   def self.scrape_event_page(event_url)
     doc = Nokogiri::HTML(open(event_url))
     event_info = {
-      :description => doc.css(."field-name-body").text
+      :description => doc.css(".field-name-body").text
     }
   end
 end
