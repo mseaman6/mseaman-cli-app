@@ -27,10 +27,13 @@ class Event
     @@all
   end
 
-  def self.event_names
+  def self.event_info
     self.all.each.with_index(1) do |event, index|
-      puts "#{index}. #{event.name}"
+      puts "#{index}. #{event.name}, #{event.date}"
     end
   end
 
+  def self.event_detail(input)
+    puts "#{self.all[input - 1].description}"
+  end
 end
