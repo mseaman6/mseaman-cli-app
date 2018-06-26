@@ -20,7 +20,7 @@ class CLI
 
   def add_event_description
     Event.all.each do |event|
-      event_description = Event_Scraper.scrape_event_page(Library_Url + event.url)
+      event_description = Event_Scraper.scrape_event_page("https://www.dclibrary.org" + event.url)
       event.add_event_attributes(event_description)
     end
   end
