@@ -10,6 +10,7 @@ class CLI
   def run
     make_events
     add_event_description
+    interface
   end
 
   def make_events
@@ -31,11 +32,12 @@ class CLI
     puts "What would you like to do?"
     user_input = gets.strip.downcase
     if user input == "events"
-      (event list) - create method
+      Event.event_names
     elsif user_input == "exit"
       break
     else
       puts "I did not understand your selection.  Please try again."
     end
   end
+
 end
