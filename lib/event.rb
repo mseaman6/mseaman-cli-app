@@ -1,3 +1,5 @@
+require 'colorize'
+
 class Event
 
   @@all = []
@@ -27,13 +29,21 @@ class Event
     @@all
   end
 
-  def self.event_info
+  def self.event_list
     self.all.each.with_index(1) do |event, index|
-      puts "#{index}. #{event.name}, #{event.date}"
+      if event.date == nil
+        puts "#{index}. #{event.name}"
+      else
+        puts "#{index}. #{event.name}, #{event.date}"
+      end
     end
   end
 
   def self.event_detail(input)
-    puts "#{self.all[input - 1].description}"
+    puts ""
+    puts "#{input}. #{self.all[input - 1].name}, #{self.all[input - 1].date}".colorize(:green)
+    puts ""
+    puts "#{self.all[input - 1].description}".colorize(:light_blue)
+    puts ""
   end
 end

@@ -9,9 +9,9 @@ class Event_Scraper
     events_info = doc.css(".field-name-events-list").css(".view-content").css(".views-row")
     events = events_info.collect do |event_info|
       event = {
-        name: event_info.css(".field-name-title").text,
-        date: event_info.css(".date-display-single").text,
-        url: event_info.css(".field-name-title").css("a").attribute("href").value
+        name: event_info.css(".field-name-title").text.strip,
+        date: event_info.css(".date-display-single").text.strip,
+        url: event_info.css(".field-name-title").css("a").attribute("href").value.strip
       }
     end
   end
@@ -19,7 +19,7 @@ class Event_Scraper
   def self.scrape_event_page(event_url)
     doc = Nokogiri::HTML(open(event_url))
     event_info = {
-      :description => doc.css(".field-name-body").text
+      :description => doc.css(".field-name-body").text.strip
     }
   end
 end
