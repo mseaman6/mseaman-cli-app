@@ -27,9 +27,9 @@ class Event
     @@all
   end
 
-  def event_names
-    self.all.each_with_index do |event, index|
-      puts "#{index}. event.name"
+  def self.event_names
+    self.all.each.with_index(1) do |event, index|
+      puts "#{index}. #{event.name}"
     end
   end
 

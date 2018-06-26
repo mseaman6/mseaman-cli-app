@@ -31,12 +31,11 @@ class CLI
     puts "To quit, please enter 'exit'."
     puts "What would you like to do?"
     user_input = gets.strip.downcase
-    if user input == "events"
+    if user_input == "events"
       Event.event_names
-    elsif user_input == "exit"
-      break
     else
       puts "I did not understand your selection.  Please try again."
+      user_input = gets.strip.downcase until user_input == "exit"
     end
   end
 
